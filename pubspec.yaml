@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  auto_size_text: ^3.0.0
+  flutter_riverpod: ^2.6.1
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +19,23 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/partida.png
+    - assets/images/cofre.png
+    - assets/images/sorte.png
+    - assets/images/imposto_de_renda.png
+    - assets/images/cadeia.png
+    - assets/images/taxa_de_riqueza.png
+    - assets/images/estacao.png
+    - assets/images/estacionamento.png
+    - assets/images/va_para_cadeia.png
+    - assets/images/energia.png
+    - assets/images/agua.png
+    - assets/peoes/peao_0.png
+    - assets/peoes/peao_1.png
+    - assets/peoes/peao_2.png
+    - assets/peoes/peao_3.png
+    - assets/peoes/peao_4.png
+    - assets/peoes/peao_5.png
+    - assets/peoes/peao_6.png
+    - assets/peoes/peao_7.png

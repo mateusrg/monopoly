@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+import 'package:monopoly/models/propriedade.dart';
+
+enum TipoImposto {
+  renda,
+  riqueza,
+}
+
+class Imposto extends StatelessWidget {
+  const Imposto({
+    super.key,
+    required this.largura,
+    required this.propriedade,
+    required this.tipo,
+  });
+
+  final double largura;
+  final Propriedade propriedade;
+  final TipoImposto tipo;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: largura,
+      decoration: BoxDecoration(
+        border: Border.all(width: 1),
+      ),
+      child: AspectRatio(
+        aspectRatio: 2 / 3,
+        child: Container(
+          color: const Color.fromARGB(255, 235, 249, 213),
+          child: Container(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 6),
+              child: tipo == TipoImposto.renda
+                  ? Image.asset(
+                      'assets/images/imposto_de_renda.png',
+                      width: largura * 0.25,
+                    )
+                  : Image.asset('assets/images/taxa_de_riqueza.png'),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

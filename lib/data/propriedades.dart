@@ -5,11 +5,13 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 0,
     nome: 'Ponto de Partida',
+    abreviacao: 'Partida',
     tipo: TipoPropriedade.canto,
   ),
   Propriedade(
     id: 1,
     nome: 'Avenida Sumaré',
+    abreviacao: 'Av.\nSumaré',
     tipo: TipoPropriedade.rua,
     preco: 60,
     aluguel: Aluguel(
@@ -27,11 +29,13 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 2,
     nome: 'Cofre',
+    abreviacao: 'Cofre',
     tipo: TipoPropriedade.cofre,
   ),
   Propriedade(
     id: 3,
     nome: 'Praça da Sé',
+    abreviacao: 'Praça\nda Sé',
     tipo: TipoPropriedade.rua,
     preco: 60,
     aluguel: Aluguel(
@@ -49,18 +53,21 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 4,
     nome: 'Imposto de Renda',
+    abreviacao: 'Imposto de Renda',
     tipo: TipoPropriedade.imposto,
     preco: 200,
   ),
   Propriedade(
     id: 5,
     nome: 'Estação de Metrô Maracanã',
+    abreviacao: 'Maracanã',
     tipo: TipoPropriedade.estacao,
     preco: 200,
   ),
   Propriedade(
     id: 6,
     nome: 'Rua 25 de Março',
+    abreviacao: 'R. 25 de\nMarço',
     tipo: TipoPropriedade.rua,
     preco: 100,
     aluguel: Aluguel(
@@ -78,11 +85,13 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 7,
     nome: 'Sorte',
+    abreviacao: 'Sorte',
     tipo: TipoPropriedade.sorte,
   ),
   Propriedade(
     id: 8,
     nome: 'Avenida São João',
+    abreviacao: 'Av. São\nJoão',
     tipo: TipoPropriedade.rua,
     preco: 100,
     aluguel: Aluguel(
@@ -100,6 +109,7 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 9,
     nome: 'Avenida Paulista',
+    abreviacao: 'Av.\nPaulista',
     tipo: TipoPropriedade.rua,
     preco: 120,
     aluguel: Aluguel(
@@ -117,11 +127,13 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 10,
     nome: 'Cadeia',
+    abreviacao: 'Na\nCadeia',
     tipo: TipoPropriedade.canto,
   ),
   Propriedade(
     id: 11,
     nome: 'Avenida Vieira Souto',
+    abreviacao: 'Av. Vie.\nSouto',
     tipo: TipoPropriedade.rua,
     preco: 140,
     aluguel: Aluguel(
@@ -139,12 +151,14 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 12,
     nome: 'Companhia Elétrica',
+    abreviacao: 'Comp.\nElétrica',
     tipo: TipoPropriedade.companhia,
     preco: 150,
   ),
   Propriedade(
     id: 13,
     nome: 'Niterói',
+    abreviacao: 'Niterói',
     tipo: TipoPropriedade.rua,
     preco: 140,
     aluguel: Aluguel(
@@ -162,6 +176,7 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 14,
     nome: 'Avenida Atlântica',
+    abreviacao: 'Av.\nAtlânt.',
     tipo: TipoPropriedade.rua,
     preco: 160,
     aluguel: Aluguel(
@@ -179,12 +194,14 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 15,
     nome: 'Estação de Metrô Carioca',
+    abreviacao: 'Carioca',
     tipo: TipoPropriedade.estacao,
     preco: 200,
   ),
   Propriedade(
     id: 16,
     nome: 'Avenida Presidente Juscelino Kubitschek',
+    abreviacao: 'Av. Pres.\nJK',
     tipo: TipoPropriedade.rua,
     preco: 180,
     aluguel: Aluguel(
@@ -202,11 +219,13 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 17,
     nome: 'Cofre',
+    abreviacao: 'Cofre',
     tipo: TipoPropriedade.cofre,
   ),
   Propriedade(
     id: 18,
     nome: 'Avenida Engenheiro Luís Carlos Berrini',
+    abreviacao: 'Av. Eng.\nL. C. B.',
     tipo: TipoPropriedade.rua,
     preco: 180,
     aluguel: Aluguel(
@@ -224,6 +243,7 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 19,
     nome: 'Avenida Brigadeiro Faria Lima',
+    abreviacao: 'Av. Bri.\nFaria L.',
     tipo: TipoPropriedade.rua,
     preco: 200,
     aluguel: Aluguel(
@@ -241,11 +261,13 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 20,
     nome: 'Estacionamento Grátis',
+    abreviacao: 'Estacion.\nGrátis',
     tipo: TipoPropriedade.canto,
   ),
   Propriedade(
     id: 21,
     nome: 'Ipanema',
+    abreviacao: 'Ipanema',
     tipo: TipoPropriedade.rua,
     preco: 220,
     aluguel: Aluguel(
@@ -258,16 +280,18 @@ const List<Propriedade> propriedades = [
       hotel: 1050,
     ),
     precoCasa: 150,
-    conjunto: Conjunto.laranja,
+    conjunto: Conjunto.vermelho,
   ),
   Propriedade(
     id: 22,
     nome: 'Sorte',
+    abreviacao: 'Sorte',
     tipo: TipoPropriedade.sorte,
   ),
   Propriedade(
     id: 23,
     nome: 'Leblon',
+    abreviacao: 'Leblon',
     tipo: TipoPropriedade.rua,
     preco: 220,
     aluguel: Aluguel(
@@ -280,11 +304,12 @@ const List<Propriedade> propriedades = [
       hotel: 1050,
     ),
     precoCasa: 150,
-    conjunto: Conjunto.laranja,
+    conjunto: Conjunto.vermelho,
   ),
   Propriedade(
     id: 24,
     nome: 'Copacabana',
+    abreviacao: 'Copac.',
     tipo: TipoPropriedade.rua,
     preco: 240,
     aluguel: Aluguel(
@@ -297,11 +322,12 @@ const List<Propriedade> propriedades = [
       hotel: 1100,
     ),
     precoCasa: 150,
-    conjunto: Conjunto.laranja,
+    conjunto: Conjunto.vermelho,
   ),
   Propriedade(
     id: 25,
     nome: 'Estação de Metrô Consolação',
+    abreviacao: 'Consol.',
     tipo: TipoPropriedade.estacao,
     preco: 200,
     aluguel: null,
@@ -311,6 +337,7 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 26,
     nome: 'Avenida Cidade Jardim',
+    abreviacao: 'Cidade\nJardim',
     tipo: TipoPropriedade.rua,
     preco: 260,
     aluguel: Aluguel(
@@ -328,6 +355,7 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 27,
     nome: 'Pacaembu',
+    abreviacao: 'Pacaem.',
     tipo: TipoPropriedade.rua,
     preco: 260,
     aluguel: Aluguel(
@@ -345,12 +373,14 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 28,
     nome: 'Companhia de Distribuição de Água',
+    abreviacao: 'Companhia de Distribuição de Água',
     tipo: TipoPropriedade.companhia,
     preco: 150,
   ),
   Propriedade(
     id: 29,
     nome: 'Ibirapuera',
+    abreviacao: 'Ibirap.',
     tipo: TipoPropriedade.rua,
     preco: 280,
     aluguel: Aluguel(
@@ -368,11 +398,13 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 30,
     nome: 'Vá para a Cadeia',
+    abreviacao: 'Vá para a Cadeia',
     tipo: TipoPropriedade.canto,
   ),
   Propriedade(
     id: 31,
     nome: 'Barra da Tijuca',
+    abreviacao: 'Barra da\nTijuca',
     tipo: TipoPropriedade.rua,
     preco: 300,
     aluguel: Aluguel(
@@ -390,6 +422,7 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 32,
     nome: 'Jardim Botânico',
+    abreviacao: 'Jardim\nBotânico',
     tipo: TipoPropriedade.rua,
     preco: 300,
     aluguel: Aluguel(
@@ -407,11 +440,13 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 33,
     nome: 'Cofre',
+    abreviacao: 'Cofre',
     tipo: TipoPropriedade.cofre,
   ),
   Propriedade(
     id: 34,
     nome: 'Lagoa Rodrigo de Freitas',
+    abreviacao: 'Lagoa R.\nde Freit.',
     tipo: TipoPropriedade.rua,
     preco: 320,
     aluguel: Aluguel(
@@ -429,17 +464,20 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 35,
     nome: 'Estação de Metrô República',
+    abreviacao: 'Repúb.',
     tipo: TipoPropriedade.estacao,
     preco: 200,
   ),
   Propriedade(
     id: 36,
     nome: 'Sorte',
+    abreviacao: 'Sorte',
     tipo: TipoPropriedade.sorte,
   ),
   Propriedade(
     id: 37,
     nome: 'Avenida Morumbi',
+    abreviacao: 'Av.\nMorum.',
     tipo: TipoPropriedade.rua,
     preco: 350,
     aluguel: Aluguel(
@@ -457,12 +495,14 @@ const List<Propriedade> propriedades = [
   Propriedade(
     id: 38,
     nome: 'Taxa de Riqueza',
+    abreviacao: 'Taxa de Riqueza',
     tipo: TipoPropriedade.imposto,
     preco: 100,
   ),
   Propriedade(
     id: 39,
     nome: 'Rua Oscar Freire',
+    abreviacao: 'R. Osc.\nFreire',
     tipo: TipoPropriedade.rua,
     preco: 400,
     aluguel: Aluguel(

@@ -5,9 +5,14 @@ import 'package:monopoly/data/propriedades.dart';
 import 'package:monopoly/widgets/centro_tabuleiro.dart';
 import 'package:monopoly/widgets/propriedade_tabuleiro.dart';
 
-class Tabuleiro extends StatelessWidget {
+class Tabuleiro extends StatefulWidget {
   const Tabuleiro({super.key});
 
+  @override
+  State<Tabuleiro> createState() => _TabuleiroState();
+}
+
+class _TabuleiroState extends State<Tabuleiro> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (ctx, constraints) {

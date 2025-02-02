@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:monopoly/models/jogador.dart';
 import 'package:monopoly/models/propriedade.dart';
-import 'package:monopoly/providers/informacoes_jogadores_provider.dart';
+import 'package:monopoly/providers/jogadores_provider.dart';
 
 class PontoDePartida extends ConsumerWidget {
   const PontoDePartida({
@@ -18,18 +18,14 @@ class PontoDePartida extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final List<Jogador> jogadoresNestaPropriedade = ref
-        .read(informacoesJogadoresProvider)
+        .watch(jogadoresProvider)
         .where((jogador) => jogador.idPosicaoJogador == propriedade.id)
         .toList();
-
-    int quantJogadoresTeste = 8;
-    for (var i = 0; i < 8 - quantJogadoresTeste; i++) {
-      jogadoresNestaPropriedade.removeLast();
-    }
 
     final double padding = jogadoresNestaPropriedade.length < 5
         ? largura * 1.5 * (1 - 0.85)
         : largura * 1.5 * (1 - 0.95);
+
     return Container(
       width: largura * 1.5,
       decoration: BoxDecoration(
@@ -65,7 +61,6 @@ class PontoDePartida extends ConsumerWidget {
                 ),
               ),
             ),
-
             if (jogadoresNestaPropriedade.isNotEmpty)
               Positioned.fill(
                 child: Align(
@@ -86,7 +81,7 @@ class PontoDePartida extends ConsumerWidget {
     final double padding = jogadores.length < 5
         ? largura * 1.5 * (1 - 0.85)
         : largura * 1.5 * (1 - 0.95);
-    final double alturaDisponivel = largura * 1.5 - 2 * padding - 2;
+    final double larguraDisponivel = largura * 1.5 - 2 * padding - 2;
     switch (jogadores.length) {
       case 2:
         return Center(
@@ -94,7 +89,7 @@ class PontoDePartida extends ConsumerWidget {
             children: List.generate(2, (index) {
               return Image.asset(
                 'assets/peoes/peao_${jogadores[index].peaoIndex}.png',
-                width: alturaDisponivel / 2,
+                width: larguraDisponivel / 2,
               );
             }),
           ),
@@ -109,14 +104,14 @@ class PontoDePartida extends ConsumerWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 0.5),
                     child: Image.asset(
                       'assets/peoes/peao_${jogadores[index].peaoIndex}.png',
-                      width: (alturaDisponivel - 2) / 2,
+                      width: (larguraDisponivel - 2) / 2,
                     ),
                   );
                 }),
               ),
               Image.asset(
                 'assets/peoes/peao_${jogadores[2].peaoIndex}.png',
-                width: alturaDisponivel / 2,
+                width: larguraDisponivel / 2,
               ),
             ],
           ),
@@ -131,7 +126,7 @@ class PontoDePartida extends ConsumerWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 0.5),
                     child: Image.asset(
                       'assets/peoes/peao_${jogadores[i * 2 + index].peaoIndex}.png',
-                      width: (alturaDisponivel - 2) / 2,
+                      width: (larguraDisponivel - 2) / 2,
                     ),
                   );
                 }),
@@ -150,7 +145,7 @@ class PontoDePartida extends ConsumerWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 0.5),
                       child: Image.asset(
                         'assets/peoes/peao_${jogadores[i * 2 + index].peaoIndex}.png',
-                        width: alturaDisponivel / 3,
+                        width: larguraDisponivel / 3,
                       ),
                     );
                   }),
@@ -158,7 +153,7 @@ class PontoDePartida extends ConsumerWidget {
               }),
               Image.asset(
                 'assets/peoes/peao_${jogadores[4].peaoIndex}.png',
-                width: alturaDisponivel / 3,
+                width: larguraDisponivel / 3,
               ),
             ],
           ),
@@ -173,7 +168,7 @@ class PontoDePartida extends ConsumerWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 0.5),
                     child: Image.asset(
                       'assets/peoes/peao_${jogadores[i * 2 + index].peaoIndex}.png',
-                      width: alturaDisponivel / 3,
+                      width: larguraDisponivel / 3,
                     ),
                   );
                 }),
@@ -191,7 +186,7 @@ class PontoDePartida extends ConsumerWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 0.5),
                     child: Image.asset(
                       'assets/peoes/peao_${jogadores[index].peaoIndex}.png',
-                      width: (alturaDisponivel / 3) - 1,
+                      width: (larguraDisponivel / 3) - 1,
                     ),
                   );
                 }),
@@ -202,7 +197,7 @@ class PontoDePartida extends ConsumerWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 0.5),
                     child: Image.asset(
                       'assets/peoes/peao_${jogadores[2 + index].peaoIndex}.png',
-                      width: (alturaDisponivel / 3) - 1,
+                      width: (larguraDisponivel / 3) - 1,
                     ),
                   );
                 }),
@@ -213,7 +208,7 @@ class PontoDePartida extends ConsumerWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 0.5),
                     child: Image.asset(
                       'assets/peoes/peao_${jogadores[5 + index].peaoIndex}.png',
-                      width: (alturaDisponivel / 3) - 1,
+                      width: (larguraDisponivel / 3) - 1,
                     ),
                   );
                 }),
@@ -230,7 +225,7 @@ class PontoDePartida extends ConsumerWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 0.5),
                   child: Image.asset(
                     'assets/peoes/peao_${jogadores[index * 3].peaoIndex}.png',
-                    width: (alturaDisponivel / 3) - 1,
+                    width: (larguraDisponivel / 3) - 1,
                   ),
                 );
               }),
@@ -241,7 +236,7 @@ class PontoDePartida extends ConsumerWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 0.5),
                   child: Image.asset(
                     'assets/peoes/peao_${jogadores[index * 3 + 1].peaoIndex}.png',
-                    width: (alturaDisponivel / 3) - 1,
+                    width: (larguraDisponivel / 3) - 1,
                   ),
                 );
               }),
@@ -253,7 +248,7 @@ class PontoDePartida extends ConsumerWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 0.5),
                     child: Image.asset(
                       'assets/peoes/peao_${jogadores[index * 3 + 2].peaoIndex}.png',
-                      width: (alturaDisponivel / 3) - 1,
+                      width: (larguraDisponivel / 3) - 1,
                     ),
                   );
                 }),
@@ -265,26 +260,6 @@ class PontoDePartida extends ConsumerWidget {
         return Center(
           child: Image.asset('assets/peoes/peao_${jogadores[0].peaoIndex}.png'),
         );
-    }
-  }
-
-  double _calcularAspectRatio(int quantidadeJogadores) {
-    if (quantidadeJogadores <= 4) {
-      return 1.0;
-    } else if (quantidadeJogadores <= 6) {
-      return 1.5;
-    } else {
-      return 3;
-    }
-  }
-
-  double _calcularTamanhoPeao(int quantidadeJogadores) {
-    if (quantidadeJogadores <= 4) {
-      return 30;
-    } else if (quantidadeJogadores <= 6) {
-      return 25;
-    } else {
-      return 20;
     }
   }
 }

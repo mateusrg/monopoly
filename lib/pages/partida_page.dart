@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:monopoly/models/jogador.dart';
-import 'package:monopoly/providers/informacoes_jogadores_provider.dart';
+import 'package:monopoly/providers/jogadores_provider.dart';
 import 'package:monopoly/providers/turno_provider.dart';
 import 'package:monopoly/widgets/tabuleiro.dart';
 
@@ -11,7 +11,7 @@ class PartidaPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final jogadores = ref.watch(informacoesJogadoresProvider);
+    final jogadores = ref.watch(jogadoresProvider);
     final turnoAtual = ref.watch(turnoProvider);
     final jogadorAtual = jogadores[turnoAtual];
 

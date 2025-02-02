@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:monopoly/models/jogador.dart';
 import 'package:monopoly/pages/partida_page.dart';
-import 'package:monopoly/providers/informacoes_jogadores_provider.dart';
+import 'package:monopoly/providers/jogadores_provider.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -14,6 +14,20 @@ class HomePage extends ConsumerStatefulWidget {
 class _HomePageState extends ConsumerState<HomePage> {
   final List<Jogador> _jogadores = [];
   final List<int> _peoesSelecionados = [];
+
+  // initState temporário para agilizar testes
+  @override
+  void initState() {
+    _adicionarJogador('a', 0);
+    _adicionarJogador('b', 1);
+    _adicionarJogador('c', 2);
+    _adicionarJogador('d', 3);
+    _adicionarJogador('e', 4);
+    _adicionarJogador('f', 5);
+    _adicionarJogador('g', 6);
+    _adicionarJogador('h', 7);
+    super.initState();
+  }
 
   void _adicionarJogador(String nome, int peaoIndex) {
     setState(() {
@@ -337,9 +351,7 @@ class _HomePageState extends ConsumerState<HomePage> {
               ),
             );
           } else {
-            ref
-                .read(informacoesJogadoresProvider.notifier)
-                .iniciarNovoJogo(_jogadores);
+            ref.read(jogadoresProvider.notifier).iniciarNovoJogo(_jogadores);
 
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(

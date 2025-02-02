@@ -1,9 +1,10 @@
 class Jogador {
   final String nome;
   final int peaoIndex;
-  int dinheiro;
-  int idPosicaoJogador;
-  bool preso;
+  final int dinheiro;
+  final int idPosicaoJogador;
+  final bool preso;
+  final bool temSairDaCadeiaDeGraca;
 
   Jogador({
     required this.nome,
@@ -11,23 +12,55 @@ class Jogador {
     this.dinheiro = 1500,
     this.idPosicaoJogador = 0,
     this.preso = false,
+    this.temSairDaCadeiaDeGraca = false,
   });
 
-  void receber(int quantidade) {
-    dinheiro += quantidade;
+  Jogador copyWith({
+    String? nome,
+    int? peaoIndex,
+    int? dinheiro,
+    int? idPosicaoJogador,
+    bool? preso,
+    bool? temSairDaCadeiaDeGraca,
+  }) {
+    return Jogador(
+      nome: nome ?? this.nome,
+      peaoIndex: peaoIndex ?? this.peaoIndex,
+      dinheiro: dinheiro ?? this.dinheiro,
+      idPosicaoJogador: idPosicaoJogador ?? this.idPosicaoJogador,
+      preso: preso ?? this.preso,
+      temSairDaCadeiaDeGraca:
+          temSairDaCadeiaDeGraca ?? this.temSairDaCadeiaDeGraca,
+    );
   }
 
-  void gastar(int quantidade) {
-    dinheiro -= quantidade;
+  Jogador receber(int quantidade) {
+    return copyWith(dinheiro: dinheiro + quantidade);
   }
 
-  void mover(int quantidade) {
-    idPosicaoJogador = (idPosicaoJogador + quantidade) % 40;
+  Jogador gastar(int quantidade) {
+    return copyWith(dinheiro: dinheiro - quantidade);
   }
 
-  void prender() {
-    idPosicaoJogador = 10;
-    preso = true;
-    print('$nome preso!');
+  Jogador mover(int quantidade) {
+    if (idPosicaoJogador + quantidade < 40) {
+      return copyWith(idPosicaoJogador: idPosicaoJogador + quantidade);
+    } else {
+      return copyWith(
+        idPosicaoJogador: idPosicaoJogador + quantidade - 40,
+        dinheiro: dinheiro + 200,
+      );
+    }
+  }
+
+  Jogador prender() {
+    return copyWith(
+      idPosicaoJogador: 10,
+      preso: true,
+    );
+  }
+
+  Jogador soltar() {
+    return copyWith(preso: false);
   }
 }

@@ -25,13 +25,9 @@ class DadosNotifier extends StateNotifier<DadosState> {
       dado1: indiceColuna == 0 ? valorDado : state.dado1,
       dado2: indiceColuna == 1 ? valorDado : state.dado2,
     );
-
-    if (state.ambosDadosSelecionados) {
-      _ambosDadosSelecionados();
-    }
   }
 
-  void _ambosDadosSelecionados() {
+  void jogarDados() {
     final JogadoresNotifier jogadoresNotifier =
         ref.read(jogadoresProvider.notifier);
     final List<Jogador> jogadores = ref.read(jogadoresProvider);

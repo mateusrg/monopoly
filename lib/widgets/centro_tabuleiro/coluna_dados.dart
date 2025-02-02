@@ -30,7 +30,7 @@ class ColunaDados extends ConsumerWidget {
                 .read(dadosProvider.notifier)
                 .selecionarDado(indiceColuna, valorDado),
             child: CircleAvatarWithBorder(
-              radius: 15,
+              radius: 12.5,
               borderWidth: 1,
               borderColor: Colors.black,
               backgroundColor: estaSelecionado

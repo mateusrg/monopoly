@@ -374,7 +374,6 @@ class Cadeia extends ConsumerWidget {
                   SizedBox(width: larguraVisitantes),
                 ],
               ),
-              // Linha abaixo (parte inferior)
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -418,7 +417,6 @@ class Cadeia extends ConsumerWidget {
                   SizedBox(width: larguraVisitantes),
                 ],
               ),
-              // Linha abaixo (parte inferior)
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -476,7 +474,6 @@ class Cadeia extends ConsumerWidget {
                   SizedBox(width: larguraVisitantes),
                 ],
               ),
-              // Linha abaixo (parte inferior)
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -537,7 +534,6 @@ class Cadeia extends ConsumerWidget {
                   SizedBox(width: larguraVisitantes),
                 ],
               ),
-              // Linha abaixo (parte inferior)
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -614,7 +610,6 @@ class Cadeia extends ConsumerWidget {
                   SizedBox(width: larguraVisitantes),
                 ],
               ),
-              // Linha abaixo (parte inferior)
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

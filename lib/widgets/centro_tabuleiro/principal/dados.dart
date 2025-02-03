@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:monopoly/providers/dados_provider.dart';
+import 'package:monopoly/providers/id_conteudo_provider.dart';
 import 'package:monopoly/widgets/centro_tabuleiro/coluna_dados.dart';
 
 class Dados extends StatelessWidget {
@@ -8,12 +9,10 @@ class Dados extends StatelessWidget {
     super.key,
     required this.dadosState,
     required this.ref,
-    required this.mudaIdConteudo,
   });
 
   final DadosState dadosState;
   final WidgetRef ref;
-  final Function(int) mudaIdConteudo;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +47,6 @@ class Dados extends StatelessWidget {
                       onPressed: dadosState.ambosDadosSelecionados
                           ? () {
                               ref.read(dadosProvider.notifier).jogarDados();
-                              mudaIdConteudo(0);
                             }
                           : null,
                       child: const Text('Jogar'),
@@ -63,7 +61,7 @@ class Dados extends StatelessWidget {
               left: 0,
               child: IconButton(
                 onPressed: () {
-                  mudaIdConteudo(0);
+                  ref.read(idConteudoProvider.notifier).mudarId(0);
                 },
                 icon: const Icon(Icons.arrow_back),
               ),

@@ -1,7 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:monopoly/data/propriedades.dart';
 import 'package:monopoly/models/jogador.dart';
 import 'package:monopoly/providers/contador_turnos_preso_provider.dart';
+import 'package:monopoly/providers/id_conteudo_provider.dart';
 import 'package:monopoly/providers/jogadores_provider.dart';
+import 'package:monopoly/providers/propriedades_provider.dart';
 import 'package:monopoly/providers/turno_provider.dart';
 
 class DadosState {
@@ -27,10 +30,19 @@ class DadosNotifier extends StateNotifier<DadosState> {
     );
   }
 
+  void passarTurno() {
+    ref.read(idConteudoProvider.notifier).mudarId(0);
+    ref.read(turnoProvider.notifier).proximoTurno();
+    state = DadosState(
+      dado1: null,
+      dado2: null,
+    );
+  }
+
   void jogarDados() {
     final JogadoresNotifier jogadoresNotifier =
         ref.read(jogadoresProvider.notifier);
-    final List<Jogador> jogadores = ref.read(jogadoresProvider);
+    List<Jogador> jogadores = ref.read(jogadoresProvider);
     final int index = ref.read(turnoProvider);
 
     if (jogadores[index].preso) {
@@ -42,11 +54,7 @@ class DadosNotifier extends StateNotifier<DadosState> {
       } else {
         turnosPresoNotifier.adicionarTurno(index);
         if (ref.read(contadorTurnosPresoProvider)[index] < 2) {
-          ref.read(turnoProvider.notifier).proximoTurno();
-          state = DadosState(
-            dado1: null,
-            dado2: null,
-          );
+          passarTurno();
           return;
         }
         jogadoresNotifier.soltar(index);
@@ -62,11 +70,22 @@ class DadosNotifier extends StateNotifier<DadosState> {
     }
 
     jogadoresNotifier.mover(index, state.dado1! + state.dado2!);
-    ref.read(turnoProvider.notifier).proximoTurno();
-    state = DadosState(
-      dado1: null,
-      dado2: null,
-    );
+    jogadores = ref.read(jogadoresProvider);
+    final int idPropriedade = jogadores[index].idPosicaoJogador;
+    final int? idJogadorDono =
+        ref.read(propriedadesProvider)[idPropriedade].idJogadorDono;
+
+    if (idJogadorDono == index) {
+      passarTurno();
+      return;
+    }
+
+    if (idJogadorDono == null) {
+      ref.read(idConteudoProvider.notifier).mudarId(5);
+      return;
+    }
+
+    ref.read(idConteudoProvider.notifier).mudarId(6);
   }
 }
 

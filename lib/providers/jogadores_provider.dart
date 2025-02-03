@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:monopoly/models/jogador.dart';
 import 'package:monopoly/providers/contador_turnos_preso_provider.dart';
+import 'package:monopoly/providers/id_conteudo_provider.dart';
 import 'package:monopoly/providers/propriedades_provider.dart';
 
 class JogadoresNotifier extends StateNotifier<List<Jogador>> {
@@ -17,6 +18,7 @@ class JogadoresNotifier extends StateNotifier<List<Jogador>> {
     );
     ref.read(propriedadesProvider.notifier).reiniciarPropriedades();
     ref.read(contadorTurnosPresoProvider.notifier).reiniciarPresos();
+    ref.read(idConteudoProvider.notifier).reiniciarId();
   }
 
   void atualizarJogador(int index, Jogador jogadorAtualizado) {
